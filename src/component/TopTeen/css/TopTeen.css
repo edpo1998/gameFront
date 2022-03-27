@@ -1,0 +1,58 @@
+:root{
+    --back: #f7f7f7;
+    --first: #f3d43c;
+    --second: silver;
+    --third: #CD7F32;
+    --default: white;
+}
+
+.TopTeen{
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+
+.TopTeen__Container{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--back);
+    border-style: solid;
+    width: 50%;
+    height: 90%;
+    padding: 2rem;
+    
+}
+
+.TopTeen__Container--default{
+    background-color: var(--default);
+    border-style: inset;
+    margin: 1rem;
+    height: 7%;
+}
+
+
+.TopTeen__Container--first{
+    background-color: var(--first);
+    border-style: inset;
+    margin: 1rem;
+    height: 7%;
+}
+
+.TopTeen__Container--second{
+    margin: 1rem;
+    background-color: var(--second);
+    border-style: inset;
+    height: 7%;
+}
+
+.TopTeen__Container--third{
+    margin: 1rem;
+    background-color: var(--third);
+    border-style: inset;
+    height: 7%;
+}

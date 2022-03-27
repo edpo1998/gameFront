@@ -49,7 +49,6 @@ function NavGeneral({raiz="",routes=[]}) {
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Antu_mongodb.svg/2048px-Antu_mongodb.svg.png"
                         width="20"
                         height="20"
-                        roundedCircle
                         className="d-inline-block align-top"
                         style={{margin: '0.3rem'}}
                         />
@@ -76,7 +75,6 @@ function NavGeneral({raiz="",routes=[]}) {
                         src="https://is3-ssl.mzstatic.com/image/thumb/Purple124/v4/17/cd/a2/17cda2a0-b641-c3d0-3d22-141704a40eef/Icon.png/1200x630bb.png"
                         width="20"
                         height="20"
-                        roundedCircle
                         className="d-inline-block align-top"
                         style={{margin: '0.3rem'}}
                         />
@@ -102,7 +100,6 @@ function NavGeneral({raiz="",routes=[]}) {
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT7TSy-GKHwjCSnh7r35Oe7e2LWpdZ8P4NKxWe9lpqYItBGWGfhRt5kxLUDG9JLLwae90&usqp=CAU"
                         width="20"
                         height="20"
-                        roundedCircle
                         className="d-inline-block align-top"
                         style={{margin: '0.3rem'}}
                         />

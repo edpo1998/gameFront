@@ -1,7 +1,6 @@
 
 import './css/Home.css';
 import { useEffect } from "react";
-import NavBar from '../../component/NavBar/NavBar'
 function Home() {
   
   // Change Title in the first render
@@ -12,8 +11,9 @@ function Home() {
   
   return (
     <div className="Home">
-      
-      <h1> Hola Mundo </h1>
+      <div className="Home__Container">
+        <h1> Hellow 👋 I'm USAC Squid Game </h1>
+      </div>
     </div>
   );
 }

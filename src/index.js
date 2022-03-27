@@ -18,10 +18,11 @@ import LogTable from './component/LogTable/LogTable';
 import TopThree from './component/TopThree/TopThree';
 import Suscriber from './component/Suscriber/Suscriber';
 import Redis from './pages/Redis/Redis';
-import Statistics from './component/PlayerStat/Statistics';
+import Statistics from './component/Statistics/Statistics';
 import TopTeen from './component/TopTeen/TopTeen';
 import Tidis from './pages/Tidis/Tidis';
 import NavBar from './component/NavBar/NavBar'
+
 ReactDOM.render(
   <React.StrictMode>
     <NavBar raiz='' routes={["mongo","redis","tidis"]}></NavBar>

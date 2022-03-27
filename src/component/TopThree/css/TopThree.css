@@ -1,0 +1,51 @@
+:root{
+    --back: #f7f7f7;
+    --first: #f3d43c;
+    --second: silver;
+    --third: #CD7F32;
+}
+
+
+.TopThree{
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+.TopThree_Container{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--back);
+    border-style: solid;
+    width: 50%;
+    height: 50%;
+    padding: 2rem;
+    
+}
+
+.TopThree_Container--first{
+    background-color: var(--first);
+    border-style: inset;
+    height: 12%;
+    margin: 2rem;
+    padding: 0.2rem;
+}
+
+.TopThree_Container--second{
+    border-style: inset;
+    margin: 2rem;
+    padding: 0.2rem;
+    background-color: var(--second);
+    height: 12%;
+}
+
+.TopThree_Container--third{
+    border-style: inset;
+    margin: 2rem;
+    padding: 0.2rem;
+    background-color: var(--third);
+    height: 12%;
+}
