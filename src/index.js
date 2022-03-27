@@ -9,7 +9,9 @@ import {
   Route,
 } from "react-router-dom";
 
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './css/index.css';
+
 import Home from './pages/Home/Home';
 import Mongo from './pages/Mongo/Mongo';
 import Redis from './pages/Redis/Redis';
@@ -21,8 +23,8 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Home />}> </Route>
         <Route path="/mongo" element={<Mongo />}> </Route>
-        <Route path="/tidis" element={<Redis />}> </Route>
-        <Route path="/redis" element={<Tidis />}> </Route>
+        <Route path="/redis" element={<Redis />}> </Route>
+        <Route path="/tidis" element={<Tidis />}> </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
