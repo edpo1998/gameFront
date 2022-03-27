@@ -1,12 +1,18 @@
 import './css/Tidis.css';
-import NavBar from '../../component/NavBar/NavBar'
+import { useEffect } from "react";
+import { Outlet } from 'react-router-dom';
 
 function Tidis() {
-  (() => {document.getElementById("titlehead").innerText="Tidis"})();
+  
+  // Change Title in the first render
+  useEffect(() => {
+    (() => {document.getElementById("titlehead").innerText="Tidis"})();
+  }, []);
+
+  
   return (
     <div className="page" id='Tidis'>
-      <NavBar raiz='redis' routes={["topgames","topplayers","stats"]}></NavBar>
-      <h1> Hola soy Tidis </h1>
+      <Outlet/>
     </div>
   );
 }

@@ -1,13 +1,21 @@
 import './css/Redis.css';
-import NavBar from '../../component/NavBar/NavBar'
+import { Outlet } from 'react-router-dom';
+import { useEffect } from "react";
 
 function Redis() {
-  (() => {document.getElementById("titlehead").innerText="Redis"})();
+
+  // Change Title in the first render
+  useEffect(() => {
+    (() => {document.getElementById("titlehead").innerText="Redis"})();
+  }, []);
+
+  
   return (
-    <div className="Redis">
-      <NavBar raiz='redis' routes={["topgames","topplayers","stats"]}></NavBar>
-      <h1> Hola soy Redis </h1>
-    </div>
+    <>
+      <div className="Redis">
+        <Outlet></Outlet>
+      </div>
+    </>
   );
 }
 
