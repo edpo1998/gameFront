@@ -1,40 +1,28 @@
 
 import './css/LogTable.css';
-import { useState } from "react";
+import React, { useState, useEffect } from "react"
 import {Table} from 'react-bootstrap'
 
-const data = [
-  {
-    game_id: 2,
-    players: 23,
-    game_name:"Random",
-    winner:2,
-    queue:"Rabbit"
-  },
-  {
-    game_id: 2,
-    players: 23,
-    game_name:"Random",
-    winner:2,
-    queue:"Rabbit"
-  },
-  {
-    game_id: 2,
-    players: 23,
-    game_name:"Random",
-    winner:2,
-    queue:"Rabbit"
-  },
-  {
-    game_id: 2,
-    players: 23,
-    game_name:"Random",
-    winner:2,
-    queue:"Rabbit"
-  }  
-]
-function LogTable() {
-  const [logs,setLogs] = useState(data);
+async function fetchDataJSON(urlLoadBalancer) {
+  const response = await fetch(urlLoadBalancer);
+  const data = await response.json();
+  return data;
+}
+
+function LogTable({urlData}) {
+  const [logs,setLogs] = useState([]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchDataJSON(urlData).then(res =>{
+        setLogs(res)
+      })
+     .catch(err => {
+      setLogs([])
+     });
+    },5000)
+  return () => clearInterval(interval);
+  }, [urlData]);
 
   //setLogs(data)
   return (

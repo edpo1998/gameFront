@@ -1,4 +1,5 @@
-﻿/*
+﻿/*eslint unicode-bom: ["error", "always"]*/
+/*
 CanvasJS React Charts - https://canvasjs.com/
 Copyright 2022 fenopix
 

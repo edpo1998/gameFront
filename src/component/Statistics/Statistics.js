@@ -1,14 +1,24 @@
 import "./css/Statistics.css"
-import { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {FormControl,Table} from 'react-bootstrap'
-function Statistics() {
+
+async function fetchDataJSON(urlLoadBalancer) {
+  const response = await fetch(urlLoadBalancer);
+  const data = await response.json();
+  return data;
+}
+
+
+function Statistics({urlData=""}) {
   const [number,setNumber] = useState("")
   const [name,setName] = useState("")
   const [state,setState] = useState("")
-  
+  const [selection,setSelection] = useState(0)
+
   const changePlayer = (e)=>{
     if(e.target.value>0){
       console.log(`Selected ${e.target.value}`)
+      setSelection(e.target.value)
     }else{
       setName("")
       setNumber("")
@@ -16,6 +26,22 @@ function Statistics() {
     }
   }  
   
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchDataJSON(urlData).then(res =>{
+        // Codigo para actualizar los datos el valor a buscar es el selection
+        console.log(selection)
+      })
+     .catch(err => {
+      setName("None")
+      setNumber("None")
+      setState("None")
+     });
+    },5000)
+  return () => clearInterval(interval);
+  }, [urlData,selection]);
+
+
   return (
       <div className="Statistics">
         <div className="Statistics__Container">
