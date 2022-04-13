@@ -10,46 +10,59 @@ async function fetchDataJSON(urlLoadBalancer) {
 }
 
 
-function Suscriber({urlData=""}) {
+function Suscriber({ urlData = "" }) {
+  let lista_juegos = ["Kafka", "RabbitMQ"];
+  let contador1, contador2;
+  const [suscriber1, setSuscriber1] = useState(0)
+  const [suscriber2, setSuscriber2] = useState(0)
 
-    const [suscriber1,setSuscriber1]= useState(0)
-    const [suscriber2,setSuscriber2]= useState(0)
-
-    useEffect(() => {
-      const interval = setInterval(() => {
-        fetchDataJSON(urlData).then(res =>{
-          // Codigo para setear los suscribers
+  useEffect(() => {
+    const interval = setInterval(() => {
+      contador1 = 0;
+      contador2 = 0;
+      fetchDataJSON(urlData).then(res => {
+        res.map((row) => {
+          if (row.queue == "Kafka") {
+            contador1++;
+          } else if (row.queue == "RabbitMQ") {
+            contador2++;
+          }
         })
-       .catch(err => {
+        console.log("Kafka: ", contador1)
+        console.log("RabbitMQ: ", contador2)
+        setSuscriber1(contador1);
+        setSuscriber2(contador2);
+      })
+        .catch(err => {
           setSuscriber1(50);
           setSuscriber2(50);
-       });
-      },5000)
+        });
+    }, 5000)
     return () => clearInterval(interval);
 
-    }, [urlData]);
-  
+  }, [urlData]);
 
-    const optionsgraph = {
-      title: {
-        text: ""
-      },
-      data: [{				
-                type: "column",
-                dataPoints: [
-                    { label: "Suscriber 1",  y: suscriber1  },
-                    { label: "Suscriber 2", y: suscriber2  }
-                ]
-       }]
-    }
-    return (
-      <div className="Suscriber">
-        <div className="Suscriber__Container">
-          <h1>Suscriber 1 vs Suscriber 2</h1>
-          <CanvasJSChart options = {optionsgraph} />
-        </div>
-      </div>
-    );
+
+  const optionsgraph = {
+    title: {
+      text: ""
+    },
+    data: [{
+      type: "column",
+      dataPoints: [
+        { label: "Suscriber 1", y: suscriber1 },
+        { label: "Suscriber 2", y: suscriber2 }
+      ]
+    }]
   }
-  
-  export default  Suscriber;
+  return (
+    <div className="Suscriber">
+      <div className="Suscriber__Container">
+        <h1>Suscriber 1 vs Suscriber 2</h1>
+        <CanvasJSChart options={optionsgraph} />
+      </div>
+    </div>
+  );
+}
+
+export default Suscriber;

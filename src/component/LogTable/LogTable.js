@@ -15,6 +15,7 @@ function LogTable({urlData}) {
   useEffect(() => {
     const interval = setInterval(() => {
       fetchDataJSON(urlData).then(res =>{
+        console.log(res)
         setLogs(res)
       })
      .catch(err => {
@@ -24,7 +25,7 @@ function LogTable({urlData}) {
   return () => clearInterval(interval);
   }, [urlData]);
 
-  //setLogs(data)
+  
   return (
     <div className="LogTable">
       <Table striped bordered hover size="sm">
@@ -41,10 +42,10 @@ function LogTable({urlData}) {
         {
            logs.map((row)=>(
              <tr>
-                <td>{row.game_id}</td>
-                <td>{row.players}</td>
-                <td>{row.game_name}</td>
-                <td>{row.winner}</td>
+                <td>{row.juegoid}</td>
+                <td>{row.cantjugadores}</td>
+                <td>{row.nombrejuego}</td>
+                <td>{row.jugadorganador}</td>
                 <td>{row.queue}</td>
              </tr>
            ))

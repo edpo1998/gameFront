@@ -32,9 +32,9 @@ const URL_TOPTEENP_TIDB="endpoint"
 const URL_TOPTEENG_TIDB="endpoint"
 const URL_STATISTICS_TIDB="endpoint"
 
-const URL_LOGS_MONGO="endpoint"
-const URL_TOPTHRE_MONGO="endpoint"
-const URL_SUSCRIBERS_MONGO ="endpoint"
+const URL_LOGS_MONGO="http://localhost:4000/get-logs"
+const URL_TOPTHRE_MONGO="http://localhost:4000/get-all"
+const URL_SUSCRIBERS_MONGO ="http://localhost:4000/get-all"
 
 ReactDOM.render(
   <React.StrictMode>
