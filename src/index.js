@@ -19,18 +19,14 @@ import TopThree from './component/TopThree/TopThree';
 import Suscriber from './component/Suscriber/Suscriber';
 import Redis from './pages/Redis/Redis';
 import Statistics from './component/Statistics/Statistics';
-import TopTeen from './component/TopTeen/TopTeen';
+import StatisticsTidb from './component/Statistics/StatisticsTidb';
+import TopTeenPlayersRedis from './component/TopTeenPlayers/TopTeenPlayersRedis.js';
+import TopTeenGamesRedis from './component/TopTeenGames/TopTeenGamesRedis.js';
+import TopTeenPlayersTidb from './component/TopTeenPlayers/TopTeenPlayersTidb';
+import TopTeenGamesTidb from './component/TopTeenGames/TopTeenGamesTidb';
 import Tidis from './pages/Tidis/Tidis';
 import NavBar from './component/NavBar/NavBar'
 
-
-const URL_TOPTEENP_REDIS="endpoint"
-const URL_TOPTEENG_REDIS="endpoint"
-const URL_STATISTICS_REDIS="endpoint"
-
-const URL_TOPTEENP_TIDB="endpoint"
-const URL_TOPTEENG_TIDB="endpoint"
-const URL_STATISTICS_TIDB="endpoint"
 
 const URL_LOGS_MONGO="http://localhost:4000/get-logs"
 const URL_TOPTHRE_MONGO="http://localhost:4000/get-all"
@@ -48,14 +44,14 @@ ReactDOM.render(
            <Route path="suscriber" element={<Suscriber urlData={URL_SUSCRIBERS_MONGO}/>}></Route>
         </Route>
         <Route path="/redis" element={<Redis />}>
-           <Route path="topteengames" element={<TopTeen description='Game' urlData={URL_TOPTEENG_REDIS}/>}></Route>
-           <Route path="topteenplayers" element={<TopTeen description='Player' urlData={URL_TOPTEENP_REDIS}/>}></Route>
-           <Route path="statistics" element={<Statistics urlData={URL_STATISTICS_REDIS}/>}></Route>
+           <Route path="topteengames" element={<TopTeenGamesRedis/>}></Route>
+           <Route path="topteenplayers" element={<TopTeenPlayersRedis/>}></Route>
+           <Route path="statistics" element={<Statistics />}></Route>
         </Route>
         <Route path="/tidis" element={<Tidis />}> 
-           <Route path="topteengames" element={<TopTeen description='Game' urlData={URL_TOPTEENG_TIDB}/>}></Route>
-           <Route path="topteenplayers" element={<TopTeen description='Player' urlData={URL_TOPTEENP_TIDB}/>}></Route>
-           <Route path="statistics" element={<Statistics urlData={URL_STATISTICS_TIDB}/>}></Route>
+           <Route path="topteengames" element={<TopTeenGamesTidb/>}></Route>
+           <Route path="topteenplayers" element={<TopTeenPlayersTidb />}></Route>
+           <Route path="statistics" element={<StatisticsTidb/>}></Route>
         </Route>  
       </Routes>
     </BrowserRouter>

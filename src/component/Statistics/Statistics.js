@@ -1,15 +1,13 @@
 import "./css/Statistics.css"
 import React, { useState, useEffect } from "react"
 import {FormControl,Table} from 'react-bootstrap'
-
-async function fetchDataJSON(urlLoadBalancer) {
-  const response = await fetch(urlLoadBalancer);
-  const data = await response.json();
-  return data;
-}
+import socketIOClient from "socket.io-client"
 
 
-function Statistics({urlData=""}) {
+const ENDPOINT = "http://localhost:5000/"
+
+function Statistics() {
+
   const [number,setNumber] = useState("")
   const [name,setName] = useState("")
   const [state,setState] = useState("")
@@ -17,7 +15,6 @@ function Statistics({urlData=""}) {
 
   const changePlayer = (e)=>{
     if(e.target.value>0){
-      console.log(`Selected ${e.target.value}`)
       setSelection(e.target.value)
     }else{
       setName("")
@@ -25,21 +22,29 @@ function Statistics({urlData=""}) {
       setState("")
     }
   }  
-  
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      fetchDataJSON(urlData).then(res =>{
-        // Codigo para actualizar los datos el valor a buscar es el selection
-        console.log(selection)
-      })
-     .catch(err => {
-      setName("None")
-      setNumber("None")
-      setState("None")
-     });
-    },5000)
-  return () => clearInterval(interval);
-  }, [urlData,selection]);
+    const socket = socketIOClient(ENDPOINT);
+    
+    socket.on("total_juegos_redis", data => {
+      setState(data)
+    });
+
+    socket.on("estadisticas_jugador_redis", data => {
+      const playerobj = data.find((player)=> Object.keys(player[0])[0] == selection )
+      if(playerobj){
+        setNumber(Object.keys(playerobj[0])[0])
+        setName(Object.values(playerobj[0])[0])
+      }else{
+        setNumber("None")
+        setName("None")
+        setState("None")
+      }
+    
+  });
+
+  }, []);
+  
 
 
   return (
@@ -59,9 +64,9 @@ function Statistics({urlData=""}) {
           <Table striped bordered hover variant="dark">
             <thead>
               <tr>
-                <th>Game Number</th>
-                <th>Game Name</th>
-                <th>State</th>
+                <th>Name Player</th>
+                <th>Count Games</th>
+                <th>Count Winners</th>
               </tr>
             </thead>
             <tbody>
