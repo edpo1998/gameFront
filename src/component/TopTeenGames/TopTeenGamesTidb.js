@@ -11,6 +11,7 @@ function TopTeenGamesTidb() {
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     socket.on("ultimos_juegos_tidb", data => {
+        console.log(data[0].nombre_juego)
         setData(data)
     });
   }, []);
@@ -22,16 +23,16 @@ function TopTeenGamesTidb() {
       }else{
         return (
           <>
-          <div className="TopTeen__Container--first"><h2>🥇 Games {Object.keys(data[0])[0]}</h2></div>
-          <div className="TopTeen__Container--second"><h2>🥈 Games {Object.keys(data[1])[0]}</h2></div>
-          <div className="TopTeen__Container--third"><h2>🥉 Games {Object.keys(data[2])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Games {Object.keys(data[3])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Games {Object.keys(data[4])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Games {Object.keys(data[5])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Games {Object.keys(data[6])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Games {Object.keys(data[7])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Games {Object.keys(data[8])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Games {Object.keys(data[9])[0]}</h2></div>
+          <div className="TopTeen__Container--first"><h2>🥇 Games {data[0].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--second"><h2>🥈 Games {data[1].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--third"><h2>🥉 Games {data[2].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Games {data[3].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Games {data[4].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Games {data[5].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Games {data[6].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Games {data[7].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Games {data[8].nombre_juego}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Games {data[9].nombre_juego}</h2></div>
           </>
         )
       }

@@ -11,7 +11,8 @@ function TopTeenPlayersRedis() {
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     socket.on("mejores_jugadores_redis", data => {
-        setData(data)
+      setData(data)
+        
     });
   }, []);
 

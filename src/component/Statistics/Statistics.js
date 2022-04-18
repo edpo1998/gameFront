@@ -31,10 +31,10 @@ function Statistics() {
     });
 
     socket.on("estadisticas_jugador_redis", data => {
-      const playerobj = data.find((player)=> Object.keys(player[0])[0] == selection )
+      const playerobj = data.find((player)=> Object.keys(player)[0] == selection)
       if(playerobj){
-        setNumber(Object.keys(playerobj[0])[0])
-        setName(Object.values(playerobj[0])[0])
+        setNumber(Object.keys(playerobj)[0])
+        setName(Object.values(playerobj)[0])
       }else{
         setNumber("None")
         setName("None")
@@ -43,7 +43,7 @@ function Statistics() {
     
   });
 
-  }, []);
+  });
   
 
 

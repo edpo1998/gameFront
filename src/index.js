@@ -22,8 +22,8 @@ import Statistics from './component/Statistics/Statistics';
 import StatisticsTidb from './component/Statistics/StatisticsTidb';
 import TopTeenPlayersRedis from './component/TopTeenPlayers/TopTeenPlayersRedis.js';
 import TopTeenGamesRedis from './component/TopTeenGames/TopTeenGamesRedis.js';
-import TopTeenPlayersTidb from './component/TopTeenPlayers/TopTeenPlayersTidb';
-import TopTeenGamesTidb from './component/TopTeenGames/TopTeenGamesTidb';
+import TopTeenPlayersTidb from './component/TopTeenPlayers/TopTeenPlayersTidb.js';
+import TopTeenGamesTidb from './component/TopTeenGames/TopTeenGamesTidb.js';
 import Tidis from './pages/Tidis/Tidis';
 import NavBar from './component/NavBar/NavBar'
 

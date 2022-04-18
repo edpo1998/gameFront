@@ -21,16 +21,16 @@ function TopTeenPlayersTidb() {
       }else{
         return (
           <>
-          <div className="TopTeen__Container--first"><h2>🥇 Players {Object.keys(data[0])[0]}</h2></div>
-          <div className="TopTeen__Container--second"><h2>🥈 Players {Object.keys(data[1])[0]}</h2></div>
-          <div className="TopTeen__Container--third"><h2>🥉 Players {Object.keys(data[2])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Players {Object.keys(data[3])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Players {Object.keys(data[4])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Players {Object.keys(data[5])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Players {Object.keys(data[6])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Players {Object.keys(data[7])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Players {Object.keys(data[8])[0]}</h2></div>
-          <div className="TopTeen__Container--default"><h2>◾️ Players {Object.keys(data[9])[0]}</h2></div>
+          <div className="TopTeen__Container--first"><h2>🥇 Players {data[0].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--second"><h2>🥈 Players {data[1].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--third"><h2>🥉 Players {data[2].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Players {data[3].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Players {data[4].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Players {data[5].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Players {data[6].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Players {data[7].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Players {data[8].nombre_ganador}</h2></div>
+          <div className="TopTeen__Container--default"><h2>◾️ Players {data[9].nombre_ganador}</h2></div>
           </>
         )
       }

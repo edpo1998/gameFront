@@ -11,6 +11,7 @@ function TopTeenGamesRedis() {
     const socket = socketIOClient(ENDPOINT);
     socket.on("ultimos_juegos_redis", data => {
         setData(data)
+        console.log(data)
     });
   }, []);
 

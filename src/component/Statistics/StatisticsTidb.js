@@ -25,16 +25,17 @@ function StatisticsTidb() {
 
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
-    
-    socket.on("total_juegos_redis", data => {
-      setState(data)
+    socket.on("total_juegos_tidb", data => {
+      if(data && data.length >0)
+      	setState(data[0].total_juegos)
     });
 
-    socket.on("estadisticas_jugador_redis", data => {
-      const playerobj = data.find((player)=> Object.keys(player[0])[0] == selection )
+    socket.on("estadisticas_jugador_tidb", data => {
+      console.log(data)
+      const playerobj = data.find((player)=> player.nombre_ganador == selection )
       if(playerobj){
-        setNumber(Object.keys(playerobj[0])[0])
-        setName(Object.values(playerobj[0])[0])
+        setNumber(playerobj.nombre_ganador)
+        setName(playerobj.juegos_ganados)
       }else{
         setNumber("None")
         setName("None")
@@ -43,7 +44,7 @@ function StatisticsTidb() {
     
   });
 
-  }, []);
+  });
   
 
 
