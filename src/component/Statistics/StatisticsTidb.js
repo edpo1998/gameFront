@@ -4,7 +4,7 @@ import {FormControl,Table} from 'react-bootstrap'
 import socketIOClient from "socket.io-client"
 
 
-const ENDPOINT = "http://localhost:5000/"
+const ENDPOINT = "https://fase2-sopes1.uc.r.appspot.com/"
 
 function StatisticsTidb() {
 
@@ -15,6 +15,7 @@ function StatisticsTidb() {
 
   const changePlayer = (e)=>{
     if(e.target.value>0){
+      console.log(e.target.value)
       setSelection(e.target.value)
     }else{
       setName("")
@@ -32,7 +33,7 @@ function StatisticsTidb() {
 
     socket.on("estadisticas_jugador_tidb", data => {
       console.log(data)
-      const playerobj = data.find((player)=> player.nombre_ganador == selection )
+      const playerobj = data.find((player)=> player.nombre_ganador === selection )
       if(playerobj){
         setNumber(playerobj.nombre_ganador)
         setName(playerobj.juegos_ganados)

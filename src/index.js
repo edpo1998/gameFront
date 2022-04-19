@@ -28,9 +28,9 @@ import Tidis from './pages/Tidis/Tidis';
 import NavBar from './component/NavBar/NavBar'
 
 
-const URL_LOGS_MONGO="http://localhost:4000/get-logs"
-const URL_TOPTHRE_MONGO="http://localhost:4000/get-all"
-const URL_SUSCRIBERS_MONGO ="http://localhost:4000/get-all"
+const URL_LOGS_MONGO="https://api-rust-y7bfbmppya-uc.a.run.app/get-logs/"
+const URL_TOPTHRE_MONGO="https://api-rust-y7bfbmppya-uc.a.run.app/get-all/"
+const URL_SUSCRIBERS_MONGO ="https://api-rust-y7bfbmppya-uc.a.run.app/get-all/"
 
 ReactDOM.render(
   <React.StrictMode>

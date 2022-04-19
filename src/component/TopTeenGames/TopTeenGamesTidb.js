@@ -2,7 +2,7 @@ import "./css/TopTeen.css"
 import React, { useState, useEffect } from "react"
 import socketIOClient from "socket.io-client"
 
-const ENDPOINT = "http://localhost:5000/"
+const ENDPOINT = "https://fase2-sopes1.uc.r.appspot.com/"
 
 function TopTeenGamesTidb() {
 
